@@ -20,9 +20,4 @@
     <ProjectReference Include="..\MoviesApp.Domain\MoviesApp.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Context\" />
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>

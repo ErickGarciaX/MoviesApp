@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MoviesApp.Domain.Entities
 {
-    internal class Director
+    public class Director
     {
         public int Id { get; set; }
 

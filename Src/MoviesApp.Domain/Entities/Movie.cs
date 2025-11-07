@@ -12,7 +12,9 @@ namespace MoviesApp.Domain.Entities
 
         public string Genre { get; set; } = string.Empty;  
         
-        public int Year { get; set; }
+        public TimeOnly Duration { get; set; }
+        
+        public int IdDirector { get; set; } 
 
-    }
+        }
 }

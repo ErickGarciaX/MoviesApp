@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Mvc;
+using MoviesApp.Application.Interfaces;
+using MoviesApp.Domain.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,28 +18,27 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/Director/list", async (IDirectorService service) =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+    List<Director> directors = await service.GetAllAsync();
+
+    return Results.Ok(directors);
+});
+
+app.MapPost("/Director", async (IDirectorService service, [FromBody] Director director) =>
+{
+    await service.CreateAsync(director);
+
+    return Results.Ok();
+});
+
+/*app.MapPost("/Director/list", async (IDirectorService service, [FromBody] Director director) =>
+{
+    await service.UpdateAsync(director);
+
+    return Results.Ok();
+});*/
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

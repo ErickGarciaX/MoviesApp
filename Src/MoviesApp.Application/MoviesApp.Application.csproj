@@ -10,8 +10,4 @@
     <ProjectReference Include="..\MoviesApp.Domain\MoviesApp.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>
