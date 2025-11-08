@@ -10,6 +10,8 @@ namespace MoviesApp.Application.Interfaces
 
         Task<List<Movie>> GetByDirectorIdAsync(int id);
 
+        Task<List<Movie>> GetAllAsync();
+
         Task UpdateAsync(Movie movie);  
 
         Task DeleteAsync(int id);
