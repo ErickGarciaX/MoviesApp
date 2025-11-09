@@ -1,0 +1,21 @@
+
+
+<div class="form-container">
+  <h2>🎬 Nueva Película</h2>
+
+  <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+    <label>Título:</label>
+    <input type="text" formControlName="title" placeholder="Ej: Interstellar" />
+
+    <label>Género:</label>
+    <input type="text" formControlName="genre" placeholder="Ej: Ciencia Ficción" />
+
+    <label>Duración (minutos):</label>
+    <input type="text" formControlName="duration" placeholder="Ej: 00:00:00" />
+
+    <div class="buttons">
+      <button type="submit" [disabled]="movieForm.invalid">Guardar</button>
+      <button type="button" (click)="goBack()">Cancelar</button>
+    </div>
+  </form>
+</div>

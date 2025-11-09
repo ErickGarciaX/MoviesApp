@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Application.Interfaces;
 using MoviesApp.Domain.Entities;
-using MoviesApp.Infraestructure.Service;
-
 
 namespace MoviesAPI.Controllers
 {
@@ -52,6 +50,9 @@ namespace MoviesAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateMovie([FromBody] Movie movie)
         {
+            if (movie == null)
+                return BadRequest("Invalid movie data");
+
             await _movieService.CreateAsync(movie);
             return CreatedAtAction(nameof(GetById), new { id = movie.Id }, movie);
         }
