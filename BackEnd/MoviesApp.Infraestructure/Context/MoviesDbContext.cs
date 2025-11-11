@@ -46,8 +46,7 @@ namespace MoviesApp.Infraestructure.Context
 
             modelBuilder.Entity<Movie>()
                 .Property(m => m.IdDirector)
-                .HasColumnName("FKDirector")
-                .IsRequired();
+                .HasColumnName("FKDirector");
 
             modelBuilder.Entity<Movie>()
                 .HasOne<Director>()

@@ -11,7 +11,7 @@ namespace MoviesApp.Domain.Entities
         
         public TimeOnly Duration { get; set; }
         
-        public int IdDirector { get; set; } 
+        public int? IdDirector { get; set; } 
 
         }
 }
