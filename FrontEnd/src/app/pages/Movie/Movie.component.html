@@ -7,8 +7,8 @@
 
   <ul *ngIf="movies.length > 0; else noMovies">
     <li *ngFor="let movie of movies">
-      <strong>{{ movie.title }}</strong> — {{ movie.genre }} ({{ movie.duration }}) ({{ movie.idDirector }})
-      <button class="btn-edit">Editar</button>
+      <strong>{{ movie.title }}</strong> — {{ movie.genre }} ({{ movie.duration }}) ({{ getDirectorName(movie.idDirector) }})
+      <button class="btn-edit" (click)="editMovie(movie.id)">Editar</button>
       <button class="btn-delete" (click)="deleteMovie(movie.id)">Eliminar</button>
     </li>
   </ul>
@@ -16,4 +16,6 @@
   <ng-template #noMovies>
     <p>No hay películas registradas.</p>
   </ng-template>
+
+  <button type="button" (click)="goBack()">Regresar</button>
 </div>

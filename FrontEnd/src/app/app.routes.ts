@@ -9,6 +9,11 @@ export const routes: Routes = [
     { path: 'main', component: MainPageComponent },
     { path: 'movies', component: MoviesComponent },
     { path: 'movies/new', component: MovieFormComponent },
-    { path: 'directors', component: DirectorComponent }
+    { path: 'directors', component: DirectorComponent },
+    {
+  path: 'movies/edit/:id',
+  loadComponent: () => import('./pages/Movie/MovieForm/movie-form.component')
+    .then(m => m.MovieFormComponent)
+}
 
 ];

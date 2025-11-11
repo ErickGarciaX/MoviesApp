@@ -22,7 +22,7 @@ export class MovieService {
         return this.http.get<Movie>(`${this.apiUrl}/${id}`);
     }
 
-    createMovie(movie: Movie): Observable<Movie> {
+    createMovie(movie: Omit<Movie, 'id'>): Observable<Movie> {
         return this.http.post<Movie>(this.apiUrl, movie);
     }
 
