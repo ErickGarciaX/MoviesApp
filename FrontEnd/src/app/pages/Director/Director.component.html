@@ -1,0 +1,21 @@
+<div class="directors-container">
+  <h1>Lista de Directores</h1>
+
+  <button class="btn-add" (click)="createDirector()">Nuevo director</button>
+
+  <ul *ngIf="directors.length > 0; else noDirectors">
+    <li *ngFor="let director of directors">
+      <strong>{{ director.name }}</strong> — Edad: {{ director.age }}
+      <span [class.active]="director.isActive">({{ director.isActive ? 'Activo' : 'Inactivo' }})</span>
+
+      <button class="btn-edit" (click)="editDirector(director.id)">Editar</button>
+      <button class="btn-delete" (click)="deleteDirector(director.id)">Eliminar</button>
+    </li>
+  </ul>
+
+  <ng-template #noDirectors>
+    <p>No hay directores registrados.</p>
+  </ng-template>
+
+  <button class="btn-back" (click)="goBack()">Regresar</button>
+</div>

@@ -1,0 +1,135 @@
+.directors-container {
+  background-color: #EFECE3;
+  color: #000000;
+  padding: 40px;
+  max-width: 800px;
+  margin: 50px auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.directors-container h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #4A70A9;
+  margin-bottom: 25px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #ffffff;
+  border-left: 6px solid #8FABD4;
+  margin-bottom: 15px;
+  padding: 18px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+li strong {
+  font-size: 1.1rem;
+  color: #000000;
+}
+
+li span {
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+li span.active {
+  color: #4A70A9;
+}
+
+li span:not(.active) {
+  color: #b33a3a;
+}
+
+button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.btn-add {
+  background-color: #4A70A9;
+  color: white;
+  display: block;
+  margin: 0 auto 25px auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: #8FABD4;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.btn-edit {
+  background-color: #8FABD4;
+  color: #000000;
+  font-weight: 500;
+}
+
+.btn-edit:hover {
+  background-color: #4A70A9;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #b33a3a;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-delete:hover {
+  background-color: #e04949;
+}
+
+.btn-back {
+  margin-top: 25px;
+  background-color: transparent;
+  color: #4A70A9;
+  font-weight: 600;
+  border: 2px solid #4A70A9;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #4A70A9;
+  color: white;
+  transform: translateY(-2px);
+}
+
+p {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 20px;
+}

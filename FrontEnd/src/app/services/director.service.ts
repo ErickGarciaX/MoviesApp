@@ -25,7 +25,7 @@ export class DirectorService {
         return this.http.get<Director>(`${this.apiUrl}/${id}`);
     }
 
-    createDirector(director: Director): Observable<Director> {
+    createDirector(director: Omit<Director, 'id'>): Observable<Director> {
         return this.http.post<Director>(this.apiUrl, director);
     }
 

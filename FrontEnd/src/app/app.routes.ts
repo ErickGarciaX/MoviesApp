@@ -4,6 +4,8 @@ import { MoviesComponent } from './pages/Movie/Movie.component';
 import { DirectorComponent } from './pages/Director/Director.component';
 import { MovieFormComponent } from './pages/Movie/MovieForm/movie-form.component';
 
+
+
 export const routes: Routes = [
     { path: '', redirectTo: '/main', pathMatch: 'full' },
     { path: 'main', component: MainPageComponent },
@@ -14,6 +16,21 @@ export const routes: Routes = [
   path: 'movies/edit/:id',
   loadComponent: () => import('./pages/Movie/MovieForm/movie-form.component')
     .then(m => m.MovieFormComponent)
-}
+},
+
+{
+    path: 'directors/new',
+    loadComponent: () =>
+      import('./pages/Director/DirectorForm/director-form.component').then(
+        (m) => m.DirectorFormComponent
+      ),
+  },
+  {
+    path: 'directors/edit/:id',
+    loadComponent: () =>
+      import('./pages/Director/DirectorForm/director-form.component').then(
+        (m) => m.DirectorFormComponent
+      ),
+  },
 
 ];

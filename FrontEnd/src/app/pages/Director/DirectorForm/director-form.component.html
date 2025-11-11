@@ -1,0 +1,22 @@
+<div class="form-container">
+  <h1>{{ isEditMode ? 'Editar Director' : 'Nuevo Director' }}</h1>
+
+  <form [formGroup]="directorForm" (ngSubmit)="onSubmit()">
+    <label>Nombre</label>
+    <input type="text" formControlName="name" placeholder="Ej. Christopher Nolan" />
+
+    <label>Edad</label>
+    <input type="number" formControlName="age" placeholder="Ej. 52" />
+
+    <label>Activo</label>
+    <select formControlName="isActive">
+      <option [ngValue]=true>Activo</option>
+      <option [ngValue]=false>Inactivo</option>
+    </select>
+
+    <div class="buttons">
+    <button type="submit">{{ isEditMode ? 'Actualizar' : 'Guardar' }}</button>
+    <button type="button" (click)="goBack()">Cancelar</button>
+    </div>
+  </form>
+</div>

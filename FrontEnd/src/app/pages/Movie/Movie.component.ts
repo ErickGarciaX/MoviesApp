@@ -31,7 +31,10 @@ export class MoviesComponent implements OnInit {
 
   loadDirectors(): void {
     this.directorService.getAllDirectors().subscribe({
-      next: (data) => this.directors = data,
+      next: (data) => {
+        this.directors = data;
+        this.cdr.detectChanges();
+      },
       error: (err) => console.error('Error al cargar directores:', err)
     });
   }
@@ -65,6 +68,7 @@ export class MoviesComponent implements OnInit {
         next: () => {
           this.movies = this.movies.filter(m => m.id !== id);
           alert('Película eliminada correctamente');
+          this.cdr.detectChanges();
         },
         error: (err) => console.error('Error al eliminar película:', err)
       });

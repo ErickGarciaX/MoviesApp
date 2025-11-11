@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -26,7 +26,8 @@ export class MovieFormComponent implements OnInit {
     private movieService: MovieService,
     private directorService: DirectorService,
     private router: Router,
-    private route: ActivatedRoute 
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {
     this.movieForm = this.fb.group({
       title: ['', Validators.required],
@@ -51,6 +52,7 @@ export class MovieFormComponent implements OnInit {
       next: (data) => {
         this.directors = data;
         console.log('Directores cargados:', data);
+        this.cdr.detectChanges();
       },
       error: (err) => console.error('Error al cargar directores:', err)
     });
@@ -65,6 +67,7 @@ loadMovieData(): void {
           duration: movie.duration,
           directorId: movie.idDirector
         });
+        this.cdr.detectChanges();
       },
       error: (err) => console.error('Error al cargar película:', err)
     });
@@ -86,7 +89,7 @@ loadMovieData(): void {
     if (this.isEditMode) {
       this.movieService.updateMovie(this.movieId, { id: this.movieId, ...movieData }).subscribe({
         next: () => {
-          alert('✅ Película actualizada exitosamente');
+          alert('Película actualizada exitosamente');
           this.router.navigate(['/movies']);
         },
         error: (err) => {
@@ -97,7 +100,7 @@ loadMovieData(): void {
     } else {
       this.movieService.createMovie(movieData).subscribe({
         next: () => {
-          alert('🎬 Película creada exitosamente');
+          alert('Película creada exitosamente');
           this.router.navigate(['/movies']);
         },
         error: (err) => {
